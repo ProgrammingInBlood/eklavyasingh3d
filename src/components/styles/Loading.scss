@@ -1,0 +1,165 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:800);
+
+.loading {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  z-index: 999;
+  background: black;
+  overflow: hidden;
+  h1 {
+    font-family: "Great Vibes", cursive;
+    color: white;
+    letter-spacing: 3px;
+
+    flex-grow: 2;
+    font-size: 3em;
+    text-align: center;
+    margin-top: 0;
+  }
+  @media (max-width: 600px) {
+    h1 {
+      font: size 2em;
+    }
+  }
+  p {
+    font-family: "Paytone One", sans-serif;
+  }
+}
+
+.container {
+  position: relative;
+}
+.circle {
+  position: absolute;
+  top: 12%;
+  left: 48%;
+  opacity: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #dadae4;
+  z-index: -1;
+  transform: scale(0);
+  animation: circle 1s linear;
+}
+img {
+  display: block;
+  margin: 40px auto 0;
+  width: 100px;
+  z-index: 3;
+}
+.loading p {
+  text-align: center;
+  margin: 0;
+  font-size: 28px;
+  color: #717171;
+  font-family: monospace;
+}
+.loading .a {
+  margin: 0;
+  position: relative;
+  margin: 15px auto;
+  width: 500px;
+  height: 5px;
+  background: #f1f1f1;
+  border: 2px solid #ccc;
+  z-index: 1;
+  border-radius: 10px;
+}
+@media (max-width: 600px) {
+  .loading .a {
+    width: 300px;
+  }
+}
+
+.b {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 5px;
+  background: black;
+  transition: 20s all ease-in-out;
+  animation: progress 5s ease-out infinite;
+}
+
+@keyframes circle {
+  0% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0.3;
+    background: #ccc;
+    transform: scale(30);
+  }
+  100% {
+    opacity: 1;
+    background: #eee;
+    transform: scale(31);
+  }
+}
+
+$colors: #f2385a, #f5a503, #e9f1df, #56d9cd, #3aa1bf;
+$max: length($colors);
+$dash: 70;
+$dash-gap: 10;
+$dash-space: $dash * ($max - 1) + $dash-gap * $max;
+$time: 6s;
+$time-step: $time/$max;
+
+/* Main styles */
+
+.text {
+  fill: none;
+  stroke-width: 3;
+  stroke-linejoin: round;
+  stroke-dasharray: $dash $dash-space;
+  stroke-dashoffset: 0;
+  -webkit-animation: stroke $time infinite linear;
+  animation: stroke $time infinite linear;
+
+  @for $item from 1 through $max {
+    &:nth-child(#{$max}n + #{$item}) {
+      $color: nth($colors, $item);
+      stroke: $color;
+      -webkit-animation-delay: -($time-step * $item);
+      animation-delay: -($time-step * $item);
+    }
+  }
+}
+
+@-webkit-keyframes stroke {
+  100% {
+    stroke-dashoffset: -($dash + $dash-gap) * $max;
+  }
+}
+
+@keyframes stroke {
+  100% {
+    stroke-dashoffset: -($dash + $dash-gap) * $max;
+  }
+}
+
+/* Other styles */
+.fontss {
+  height: 100%;
+}
+
+.fontss {
+  background: #111;
+  background-size: 0.2em 100%;
+  font: 5em/1 Open Sans, Impact;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.fontss svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}

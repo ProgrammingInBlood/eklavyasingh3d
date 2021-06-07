@@ -5,13 +5,13 @@ license: CC-BY-SA-4.0 (http://creativecommons.org/licenses/by-sa/4.0/)
 source: https://sketchfab.com/3d-models/neonroad-endless-loop-425480c926144a3395b9cc8f672a8db4
 title: NeonRoad endless loop
 */
-import React, { useRef, useEffect } from 'react'
-import { useGLTF, useAnimations } from '@react-three/drei'
+import React, { useRef, useEffect } from "react";
+import { useGLTF, useAnimations } from "@react-three/drei";
 
 export default function Model(props) {
-  const group = useRef()
-  const { nodes, materials, animations } = useGLTF('../../../scene.gltf')
-  const { actions } = useAnimations(animations, group)
+  const group = useRef();
+  const { nodes, materials, animations } = useGLTF("../../../scene.gltf");
+  const { actions } = useAnimations(animations, group);
 
   useEffect(() => {
     // actions['Road|MovingAction'].play();
@@ -23,19 +23,10 @@ export default function Model(props) {
     // actions['Shade3|MovingAction'].play();
     // actions['SideSideLeft|MovingAction'].play();
     // actions['Camera|MovingAction'].play();
-    actions['Moving|MovingAction'].play();
+    actions["Moving|MovingAction"].play();
 
-
-
-
-
-    actions['Moving|MovingAction'].setEffectiveTimeScale(props.mouse);
-
-  })
-
-
-
-
+    actions["Moving|MovingAction"].setEffectiveTimeScale(props.mouse);
+  });
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -47,7 +38,12 @@ export default function Model(props) {
             rotation={[-0.04, Math.PI / 2, 0]}
             scale={[100, 100, 100]}
           />
-          <group name="Moving" position={[0, 0, 3966.67]} rotation={[-Math.PI / 2, 0, 0]} scale={[100, 100, 100]}>
+          <group
+            name="Moving"
+            position={[0, 0, 3966.67]}
+            rotation={[-Math.PI / 2, 0, 0]}
+            scale={[100, 100, 100]}
+          >
             <group name="Enviroment" scale={[13, 30, 13.98]}>
               <mesh
                 geometry={nodes.Enviroment_Material001_0.geometry}
@@ -119,10 +115,22 @@ export default function Model(props) {
               />
             </group>
             <group name="Road" position={[0, 0, 0.09]} scale={[2.98, 30, 2.98]}>
-              <group name="CenterLine" position={[0, 0, 0.01]} scale={[0.03, 0.1, 0.06]}>
-                <mesh geometry={nodes.CenterLine_Material007_0.geometry} material={materials['Material.007']} />
+              <group
+                name="CenterLine"
+                position={[0, 0, 0.01]}
+                scale={[0.03, 0.1, 0.06]}
+              >
+                <mesh
+                  geometry={nodes.CenterLine_Material007_0.geometry}
+                  material={materials["Material.007"]}
+                />
               </group>
-              <group name="SideRight" position={[1.02, 0, 0.01]} rotation={[-Math.PI, 0, 0]} scale={[-0.02, -1, -1]}>
+              <group
+                name="SideRight"
+                position={[1.02, 0, 0.01]}
+                rotation={[-Math.PI, 0, 0]}
+                scale={[-0.02, -1, -1]}
+              >
                 <mesh
                   geometry={nodes.SideRight_Material006_0.geometry}
                   material={nodes.SideRight_Material006_0.material}
@@ -132,16 +140,24 @@ export default function Model(props) {
                 name="SideSideLeft"
                 position={[-1.02, 0, 0.01]}
                 rotation={[-Math.PI, 0, 0]}
-                scale={[-0.02, -1, -1]}>
+                scale={[-0.02, -1, -1]}
+              >
                 <mesh
                   geometry={nodes.SideSideLeft_Material006_0.geometry}
                   material={nodes.SideSideLeft_Material006_0.material}
                 />
               </group>
-              <mesh geometry={nodes.Road_Material005_0.geometry} material={materials['Material.005']} />
+              <mesh
+                geometry={nodes.Road_Material005_0.geometry}
+                material={materials["Material.005"]}
+              />
             </group>
             <group position={[-7.71, 0, 0]} scale={[0.6, 0.6, 0.6]}>
-              <group position={[1.94, 0, 14.65]} rotation={[0, 0, 0]} scale={[0.57, 0.57, 0.57]}>
+              <group
+                position={[1.94, 0, 14.65]}
+                rotation={[0, 0, 0]}
+                scale={[0.57, 0.57, 0.57]}
+              >
                 <mesh
                   geometry={nodes.PalmTreeTopLeft_Material_0.geometry}
                   material={nodes.PalmTreeTopLeft_Material_0.material}
@@ -165,7 +181,11 @@ export default function Model(props) {
               />
             </group>
             <group position={[7.24, 0, 0]} scale={[0.6, 0.6, 0.6]}>
-              <group position={[1.94, 0, 14.65]} rotation={[0, 0, 0]} scale={[0.57, 0.57, 0.57]}>
+              <group
+                position={[1.94, 0, 14.65]}
+                rotation={[0, 0, 0]}
+                scale={[0.57, 0.57, 0.57]}
+              >
                 <mesh
                   geometry={nodes.PalmTreeTopLeft001_Material_0.geometry}
                   material={nodes.PalmTreeTopLeft001_Material_0.material}
@@ -199,35 +219,53 @@ export default function Model(props) {
               material={nodes.BackGround_Material004_0.material}
             />
           </group> */}
-          <group position={[103.81, 0, -44959.13]} rotation={[-Math.PI / 2, 0, 0]} scale={[3586.33, 3586.33, 3586.33]}>
+          <group
+            position={[103.81, 0, -44959.13]}
+            rotation={[-Math.PI / 2, 0, 0]}
+            scale={[3586.33, 3586.33, 3586.33]}
+          >
             <group
               name="Shade1"
               position={[-0.03, -1.04, 0.06]}
               rotation={[Math.PI / 2, 0, 0]}
-              scale={[-1.04, -0.02, -0.18]}>
-
-              <mesh geometry={nodes.Shade1_Material004_0.geometry} material={nodes.Shade1_Material004_0.material} />
+              scale={[-1.04, -0.02, -0.18]}
+            >
+              <mesh
+                geometry={nodes.Shade1_Material004_0.geometry}
+                material={nodes.Shade1_Material004_0.material}
+              />
             </group>
             <group
               name="Shade2"
               position={[-0.03, -1.04, 0.14]}
               rotation={[Math.PI / 2, 0, 0]}
-              scale={[-1.04, -0.03, -0.18]}>
-              <mesh geometry={nodes.Shade2_Material004_0.geometry} material={nodes.Shade2_Material004_0.material} />
+              scale={[-1.04, -0.03, -0.18]}
+            >
+              <mesh
+                geometry={nodes.Shade2_Material004_0.geometry}
+                material={nodes.Shade2_Material004_0.material}
+              />
             </group>
             <group
               name="Shade3"
               position={[-0.03, -1.02, 0.24]}
               rotation={[Math.PI / 2, 0, 0]}
-              scale={[-1.04, -0.05, -0.18]}>
-              <mesh geometry={nodes.Shade3_Material004_0.geometry} material={nodes.Shade3_Material004_0.material} />
+              scale={[-1.04, -0.05, -0.18]}
+            >
+              <mesh
+                geometry={nodes.Shade3_Material004_0.geometry}
+                material={nodes.Shade3_Material004_0.material}
+              />
             </group>
-            <mesh geometry={nodes.Sun_Material003_0.geometry} material={materials['Material.003']} />
+            <mesh
+              geometry={nodes.Sun_Material003_0.geometry}
+              material={materials["Material.003"]}
+            />
           </group>
         </group>
       </group>
     </group>
-  )
+  );
 }
 
-useGLTF.preload('../../../scene.gltf')
+useGLTF.preload("../../../scene.gltf");

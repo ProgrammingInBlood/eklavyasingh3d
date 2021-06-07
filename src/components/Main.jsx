@@ -1,16 +1,22 @@
-import React, { Suspense, useState, useEffect } from 'react';
-import Model from './Scene';
-import { OrbitControls } from '@react-three/drei/core/OrbitControls';
-import { PerspectiveCamera } from '@react-three/drei/core/PerspectiveCamera';
-import { Canvas } from '@react-three/fiber';
+import React, { Suspense, useState, useEffect } from "react";
+import Model from "./Scene";
+import { OrbitControls } from "@react-three/drei/core/OrbitControls";
+import { PerspectiveCamera } from "@react-three/drei/core/PerspectiveCamera";
+import { Canvas } from "@react-three/fiber";
 
 //TESTINGGGGGGG
 
-import './styles/Main.scss';
+import "./styles/Main.scss";
 
-import Typewriter from 'typewriter-effect';
+import Typewriter from "typewriter-effect";
+
+// import { useProgress } from "@react-three/drei";
+// import Loading from "./Loading";
 
 function Main() {
+  // const { active, progress, errors, item, loaded, total } = useProgress();
+  // const { progress, loaded, total } = useProgress();
+
   var [count, setCount] = useState(1);
   var [xAxis, setXAxis] = useState(0);
   var [yAxis, setYAxis] = useState(1);
@@ -19,13 +25,27 @@ function Main() {
 
   var [yView, setYView] = useState(0);
   var [ZView, setZView] = useState(0);
+  const [x, setX] = useState(0);
+  const [y, setY] = useState(0);
+
+  useEffect(() => {
+    window.addEventListener("devicemotion", handleMotion);
+    return () => {
+      window.removeEventListener("devicemotion", handleMotion);
+    };
+  }, []);
+
+  function handleMotion(event) {
+    setX(event.accelerationIncludingGravity.x);
+    setY(event.accelerationIncludingGravity.y);
+  }
 
   useEffect(() => {
     const handleResize = () => {
       setSize(window.innerWidth);
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     if (size < 770) {
       setYView(800);
@@ -53,6 +73,10 @@ function Main() {
     setYAxis(13 + e.screenY * scale);
   }
 
+  // if (total !== loaded) {
+  //   return <Loading progress={progress} />;
+  // }
+
   return (
     <>
       <Canvas
@@ -66,7 +90,7 @@ function Main() {
       >
         <OrbitControls />
         <PerspectiveCamera
-          position={[xAxis, 200 + yAxis + yView, 520 + ZView]}
+          position={[xAxis + x * 20, 200 + yAxis + y * 20 + yView, 520 + ZView]}
           fov={100}
           makeDefault="true"
           far={200000}
@@ -88,12 +112,12 @@ function Main() {
               <p>
                 I build great apps <span id="textM">With</span>
               </p>
-              <p style={{ display: 'inline-block' }}>
+              <p style={{ display: "inline-block" }}>
                 <span id="text">With &nbsp;</span>
               </p>
               <Typewriter
                 options={{
-                  strings: ['React.', 'Next.js.', 'Three.js.', 'C.', 'Python.'],
+                  strings: ["React.", "Next.js.", "Three.js.", "C.", "Python."],
                   autoStart: true,
                   loop: true,
                 }}
@@ -108,7 +132,7 @@ function Main() {
                   onMouseOver={mouseHover}
                   onMouseOut={mouseGone}
                 >
-                  <a href="#myworks" className="cta">
+                  <a href="#contact" className="cta">
                     <span>Hire Me</span>
                     <svg width="13px" height="10px" viewBox="0 0 13 10">
                       <path d="M1,5 L11,5"></path>

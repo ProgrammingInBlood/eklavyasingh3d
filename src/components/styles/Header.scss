@@ -14,7 +14,7 @@ a {
   justify-content: space-between;
   height: 64px;
   display: flex;
-  z-index: 2;
+  z-index: 20;
   position: fixed;
   transition-timing-function: ease-in-out;
   transition: all 0.5s;
@@ -35,7 +35,7 @@ a {
   justify-content: space-between;
 
   h1 {
-    font-family: 'Great Vibes', cursive;
+    font-family: "Great Vibes", cursive;
     color: white;
     letter-spacing: 3px;
     padding-left: 3vw;
@@ -68,7 +68,7 @@ a {
 .links {
   a {
     color: white;
-    font-family: 'Comfortaa', cursive;
+    font-family: "Comfortaa", cursive;
   }
   li:hover {
     transform: scaleX(1.1);

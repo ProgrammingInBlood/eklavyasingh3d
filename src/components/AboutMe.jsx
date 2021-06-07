@@ -1,18 +1,42 @@
-import './styles/AboutMe.scss';
-import React, { useRef } from 'react';
-import img1 from './images/1.png';
-import img2 from './images/2.png';
-import img3 from './images/3.png';
-import img4 from './images/4.png';
-import img5 from './images/5.png';
-import img6 from './images/6.png';
-import img7 from './images/7.png';
+import "./styles/AboutMe.scss";
+import React, { useEffect, useRef, useState } from "react";
+import img1 from "./images/1.png";
+import img2 from "./images/2.png";
+import img3 from "./images/3.png";
+import img4 from "./images/4.png";
+import img5 from "./images/5.png";
+import img6 from "./images/6.png";
+import img7 from "./images/7.png";
 
-import img9 from './images/9.png';
+import img9 from "./images/9.png";
 
 function AboutMe() {
   const images = useRef();
 
+  const [x, setX] = useState(0);
+  const [y, setY] = useState(0);
+  useEffect(() => {
+    window.addEventListener("devicemotion", handleMotion);
+    return () => {
+      window.removeEventListener("devicemotion", handleMotion);
+    };
+  }, []);
+  function handleMotion(event) {
+    setX(parseFloat(event.accelerationIncludingGravity.x).toFixed(4));
+    setY(parseFloat(event.accelerationIncludingGravity.y).toFixed(4));
+  }
+
+  if (window.innerWidth < 770) {
+    async function change() {
+      await images?.current?.childNodes?.forEach(function (move) {
+        let movingValue = move.dataset.value;
+        var movex = x * movingValue;
+        var movey = y * movingValue;
+        move.style.transform = `translateX(${movex}px) translateY(${movey}px)`;
+      });
+    }
+    change();
+  }
   function parallax(e) {
     images.current.childNodes.forEach(function (move) {
       let movingValue = move.dataset.value;
@@ -62,9 +86,9 @@ function AboutMe() {
             data-aos-duration="500"
             data-aos-anchor-placement="top-bottom"
           >
-            {' '}
+            {" "}
             HELLO,
-          </span>{' '}
+          </span>{" "}
           <span
             className="span-title"
             data-aos="zoom-in-up"
@@ -72,9 +96,9 @@ function AboutMe() {
             data-aos-duration="500"
             data-aos-anchor-placement="top-bottom"
           >
-            {' '}
-            I'M RISHABH RAJ
-          </span>{' '}
+            {" "}
+            I'M EKLAVYA SINGH
+          </span>{" "}
           <span
             className="content"
             id="content-text"

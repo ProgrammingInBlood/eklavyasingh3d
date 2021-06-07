@@ -1,17 +1,11 @@
-import './styles/MyWorks.scss';
-
-import React, { useRef } from 'react';
+import "./styles/MyWorks.scss";
 
 function MyWorks() {
-  let card = useRef();
-  let card2 = useRef();
-  let card3 = useRef();
-
-  function cardMove1(e) {
+  function cardMove(e) {
     var l = e.nativeEvent.offsetX;
     var t = e.nativeEvent.offsetY;
-    var h = card.current.offsetHeight;
-    var w = card.current.offsetWidth;
+    var h = e.target.offsetHeight;
+    var w = e.target.offsetWidth;
     var lp = Math.abs(Math.floor((100 / w) * l) - 100);
     var tp = Math.abs(Math.floor((100 / h) * t) - 100);
     var lp2 = 50 - Math.abs(Math.floor((100 / w) * l) - 100) / 10 + 5;
@@ -19,53 +13,13 @@ function MyWorks() {
     var ty = (tp - 50) / 2;
     var tx = (lp - 50) * 0.5 * -1;
 
-    card.current.style.backgroundPosition = `${lp}% ${tp}%`;
-    card.current.style.backgroundPosition += `${lp2}% ${tp2}%`;
-    card.current.style.transform = `rotateX(${ty}deg) rotateY(${tx}deg)`;
-    card.current.classList.add('active');
+    e.target.style.backgroundPosition = `${lp}% ${tp}%`;
+    e.target.style.backgroundPosition += `${lp2}% ${tp2}%`;
+    e.target.style.transform = `rotateX(${ty}deg) rotateY(${tx}deg)`;
+    e.target.classList.add("active");
   }
-  function cardOut1(e) {
-    card.current.classList.remove('active');
-  }
-  function cardMove2(e) {
-    var l = e.nativeEvent.offsetX;
-    var t = e.nativeEvent.offsetY;
-    var h = card2.current.offsetHeight;
-    var w = card2.current.offsetWidth;
-    var lp = Math.abs(Math.floor((100 / w) * l) - 100);
-    var tp = Math.abs(Math.floor((100 / h) * t) - 100);
-    var lp2 = 50 - Math.abs(Math.floor((100 / w) * l) - 100) / 10 + 5;
-    var tp2 = 50 - Math.abs(Math.floor((100 / h) * t) - 100) / 10 + 5;
-    var ty = (tp - 50) / 2;
-    var tx = (lp - 50) * 0.5 * -1;
-
-    card2.current.style.backgroundPosition = `${lp}% ${tp}%`;
-    card2.current.style.backgroundPosition += `${lp2}% ${tp2}%`;
-    card2.current.style.transform = `rotateX(${ty}deg) rotateY(${tx}deg)`;
-    card2.current.classList.add('active');
-  }
-  function cardOut2() {
-    card2.current.classList.remove('active');
-  }
-  function cardMove3(e) {
-    var l = e.nativeEvent.offsetX;
-    var t = e.nativeEvent.offsetY;
-    var h = card3.current.offsetHeight;
-    var w = card3.current.offsetWidth;
-    var lp = Math.abs(Math.floor((100 / w) * l) - 100);
-    var tp = Math.abs(Math.floor((100 / h) * t) - 100);
-    var lp2 = 50 - Math.abs(Math.floor((100 / w) * l) - 100) / 10 + 5;
-    var tp2 = 50 - Math.abs(Math.floor((100 / h) * t) - 100) / 10 + 5;
-    var ty = (tp - 50) / 2;
-    var tx = (lp - 50) * 0.5 * -1;
-
-    card3.current.style.backgroundPosition = `${lp}% ${tp}%`;
-    card3.current.style.backgroundPosition += `${lp2}% ${tp2}%`;
-    card3.current.style.transform = `rotateX(${ty}deg) rotateY(${tx}deg)`;
-    card3.current.classList.add('active');
-  }
-  function cardOut3(e) {
-    card3.current.classList.remove('active');
+  function cardOut(e) {
+    e.target.classList.remove("active");
   }
 
   return (
@@ -88,7 +42,7 @@ function MyWorks() {
             data-aos-duration="500"
             className="block"
           >
-            {' '}
+            {" "}
             WORKS
           </div>
         </h1>
@@ -101,9 +55,8 @@ function MyWorks() {
         >
           <div
             className="card charizard"
-            ref={card}
-            onMouseMove={cardMove1}
-            onMouseOut={cardOut1}
+            onMouseMove={cardMove}
+            onMouseOut={cardOut}
           >
             <h3>
               AIR <span> TUNE</span>
@@ -111,20 +64,14 @@ function MyWorks() {
           </div>
           <div
             className="card pika"
-            ref={card2}
-            onMouseMove={cardMove2}
-            onMouseOut={cardOut2}
+            onMouseMove={cardMove}
+            onMouseOut={cardOut}
           >
-            <h3 style={{ color: 'black' }}>
+            <h3 style={{ color: "black" }}>
               MUSIC <span> PLAYER</span>
             </h3>
           </div>
-          <div
-            className="card mew"
-            ref={card3}
-            onMouseMove={cardMove3}
-            onMouseOut={cardOut3}
-          >
+          <div className="card mew" onMouseMove={cardMove} onMouseOut={cardOut}>
             <h3>
               MY <span> PORTFOLIO</span>
             </h3>

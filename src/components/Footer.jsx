@@ -1,4 +1,4 @@
-import './styles/Footer.scss';
+import "./styles/Footer.scss";
 
 function Footer() {
   return (
@@ -45,7 +45,7 @@ function Footer() {
       </div>
 
       <div className="content-f flex">
-        <p>Rishabh Raj | 2021 | Made With ❤️</p>
+        <p>Eklavya Singh | 2021 | Made With ❤️</p>
       </div>
     </div>
   );

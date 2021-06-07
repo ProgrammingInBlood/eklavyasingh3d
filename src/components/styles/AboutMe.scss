@@ -12,7 +12,7 @@
   overflow: hidden;
   background: url(../images/bg2.jpg);
   color: white;
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   text-align: center;
 
   img {
@@ -25,24 +25,24 @@
   }
 
   h2 {
-    z-index: 1;
+    z-index: 10;
     position: relative;
     font-size: 90px;
     font-weight: 900;
     text-transform: uppercase;
-    font-family: 'Paytone One', sans-serif;
+    font-family: "Paytone One", sans-serif;
     margin: 0;
     #title-main {
       color: #705df2;
     }
   }
   p {
-    z-index: 1;
+    z-index: 10;
     position: relative;
     font-weight: 700;
     .span-title {
       display: block;
-      font-family: 'Paytone One', sans-serif;
+      font-family: "Paytone One", sans-serif;
       color: #705df2;
       font-size: 2rem;
     }
@@ -58,7 +58,7 @@
   margin-right: auto;
   h1 {
     margin: 0;
-    font-family: 'Paytone One', sans-serif;
+    font-family: "Paytone One", sans-serif;
     letter-spacing: 3px;
     font-size: 5rem;
     span {

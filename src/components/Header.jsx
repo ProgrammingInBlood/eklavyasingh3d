@@ -1,9 +1,9 @@
-import './styles/Header.scss';
+import "./styles/Header.scss";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 function Header() {
-  const [isActive, setActive] = useState('false');
+  const [isActive, setActive] = useState("false");
   const handleToggle = () => {
     setActive(!isActive);
   };
@@ -19,22 +19,21 @@ function Header() {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', transitionNavBar);
+    window.addEventListener("scroll", transitionNavBar);
 
-    console.log(window.scrollY);
-    return () => window.removeEventListener('scroll', transitionNavBar);
+    return () => window.removeEventListener("scroll", transitionNavBar);
   }, [show]);
 
   return (
-    <div className={`nav ${show && 'nav_black'}`}>
-      <div className="nav-header" style={{ overflow: 'hidden' }}>
-        <h1>Rishabh Raj</h1>
+    <div className={`nav ${show && "nav_black"}`}>
+      <div className="nav-header" style={{ overflow: "hidden" }}>
+        <h1>Eklavya Singh</h1>
         <button className="nav-toggle">
           <i className="fas fa-bars" onClick={handleToggle}></i>
         </button>
       </div>
 
-      <ul className={`links ${isActive ? '' : 'show-icons'}`}>
+      <ul className={`links ${isActive ? "" : "show-icons"}`}>
         <li>
           <a href="#home">home</a>
           <div className="underline"></div>
