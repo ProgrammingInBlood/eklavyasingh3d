@@ -16,16 +16,19 @@ function Loading({ progress }) {
               </text>
             </symbol>
 
-            <use class="text" xlinkHref="#s-text"></use>
-            <use class="text" xlinkHref="#s-text"></use>
-            <use class="text" xlinkHref="#s-text"></use>
-            <use class="text" xlinkHref="#s-text"></use>
-            <use class="text" xlinkHref="#s-text"></use>
+            <use className="text" xlinkHref="#s-text"></use>
+            <use className="text" xlinkHref="#s-text"></use>
+            <use className="text" xlinkHref="#s-text"></use>
+            <use className="text" xlinkHref="#s-text"></use>
+            <use className="text" xlinkHref="#s-text"></use>
           </svg>
         </div>
 
         <div className="a">
-          <div className="b" style={{ width: `${progress}%` }}></div>
+          <div
+            className="b"
+            style={{ width: `${parseInt(progress)}% !important` }}
+          ></div>
         </div>
       </div>
     </div>
