@@ -16,9 +16,9 @@
   position: absolute;
   width: 100vw;
   height: 36px;
-  left: 50%;
+  left: -5%;
   top: 40%;
-  margin-left: -200px;
+
   overflow: visible;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -190,15 +190,20 @@
   }
 }
 
+//---------------------2ND ANIMATIONNNNNNN-----------------
+//---------------------2ND ANIMATIONNNNNNN-----------------
+//---------------------2ND ANIMATIONNNNNNN-----------------
+//---------------------2ND ANIMATIONNNNNNN-----------------
+
 a {
   text-decoration: none;
 }
 h1.main,
 p.demos {
-  -webkit-animation-delay: 18s;
-  -moz-animation-delay: 18s;
-  -ms-animation-delay: 18s;
-  animation-delay: 18s;
+  // -webkit-animation-delay: 18s;
+  // -moz-animation-delay: 18s;
+  // -ms-animation-delay: 18s;
+  // animation-delay: 18s;
 }
 .sp-container {
   font-family: "Poppins", sans-serif;
@@ -317,11 +322,6 @@ p.demos {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
   filter: alpha(opacity=30);
   opacity: 0.3;
-  // -webkit-transform: scale(5);
-  // -moz-transform: scale(5);
-  // -o-transform: scale(5);
-  // -ms-transform: scale(5);
-  // transform: scale(5);
 }
 .sp-circle-link {
   position: absolute;

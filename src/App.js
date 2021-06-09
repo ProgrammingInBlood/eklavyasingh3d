@@ -16,9 +16,7 @@ function App() {
 
   const { active } = useProgress();
 
-  if (active) {
-    return <Loading />;
-  }
+  return <Loading />;
 
   return (
     <div className="App">
