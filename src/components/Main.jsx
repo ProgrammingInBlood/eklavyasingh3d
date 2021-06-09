@@ -30,19 +30,17 @@ function Main() {
   const [y, setY] = useState(0);
 
   useEffect(() => {
+    const kf = new KalmanFilter({ R: 1, Q: 10 });
+    const kg = new KalmanFilter({ R: 1, Q: 10 });
+    function handleMotion(event) {
+      setX(kf.filter(event.accelerationIncludingGravity.x));
+      setY(kg.filter(event.accelerationIncludingGravity.y));
+    }
     window.addEventListener("devicemotion", handleMotion);
     return () => {
       window.removeEventListener("devicemotion", handleMotion);
     };
   }, []);
-
-  function handleMotion(event) {
-    const kf = new KalmanFilter({ R: 1, Q: 10 });
-    const kg = new KalmanFilter({ R: 1, Q: 10 });
-
-    setX(kf.filter(event.accelerationIncludingGravity.x));
-    setY(kg.filter(event.accelerationIncludingGravity.y));
-  }
 
   useEffect(() => {
     const handleResize = () => {
