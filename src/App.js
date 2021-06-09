@@ -14,7 +14,7 @@ function App() {
     AOS.init();
   });
 
-  const { active, progress, errors, item, loaded, total } = useProgress();
+  const { active, progress, item } = useProgress();
 
   console.log(item, active);
 
