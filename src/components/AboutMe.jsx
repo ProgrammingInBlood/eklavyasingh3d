@@ -9,21 +9,26 @@ import img6 from "./images/6.png";
 import img7 from "./images/7.png";
 
 import img9 from "./images/9.png";
+import KalmanFilter from "kalmanjs";
 
 function AboutMe() {
   const images = useRef();
 
   const [x, setX] = useState(0);
   const [y, setY] = useState(0);
+
   useEffect(() => {
     window.addEventListener("devicemotion", handleMotion);
     return () => {
       window.removeEventListener("devicemotion", handleMotion);
     };
   }, []);
+
   function handleMotion(event) {
-    setX(parseFloat(event.accelerationIncludingGravity.x).toFixed(4));
-    setY(parseFloat(event.accelerationIncludingGravity.y).toFixed(4));
+    const kf = new KalmanFilter({ R: 0.1, Q: 10 });
+    const kg = new KalmanFilter({ R: 0.1, Q: 10 });
+    setX(kf.filter(event.accelerationIncludingGravity.x));
+    setY(kg.filter(event.accelerationIncludingGravity.y));
   }
 
   if (window.innerWidth < 770) {

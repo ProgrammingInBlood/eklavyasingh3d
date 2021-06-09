@@ -14,17 +14,15 @@ function App() {
     AOS.init();
   });
 
-  const { active, progress, item } = useProgress();
-
-  console.log(item, active);
+  const { active } = useProgress();
 
   if (active) {
-    return <Loading progress={progress} />;
+    return <Loading />;
   }
 
   return (
     <div className="App">
-      <Suspense fallback={<Loading progress={progress} />}>
+      <Suspense fallback={<Loading />}>
         <Routing />
       </Suspense>
     </div>

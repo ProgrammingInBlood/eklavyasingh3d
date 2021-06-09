@@ -3,6 +3,7 @@ import Model from "./Scene";
 import { OrbitControls } from "@react-three/drei/core/OrbitControls";
 import { PerspectiveCamera } from "@react-three/drei/core/PerspectiveCamera";
 import { Canvas } from "@react-three/fiber";
+import KalmanFilter from "kalmanjs";
 
 //TESTINGGGGGGG
 
@@ -36,8 +37,11 @@ function Main() {
   }, []);
 
   function handleMotion(event) {
-    setX(event.accelerationIncludingGravity.x);
-    setY(event.accelerationIncludingGravity.y);
+    const kf = new KalmanFilter({ R: 1, Q: 10 });
+    const kg = new KalmanFilter({ R: 1, Q: 10 });
+
+    setX(kf.filter(event.accelerationIncludingGravity.x));
+    setY(kg.filter(event.accelerationIncludingGravity.y));
   }
 
   useEffect(() => {
